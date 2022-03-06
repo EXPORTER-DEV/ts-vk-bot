@@ -1,0 +1,29 @@
+version: "3.2"
+services:
+  app:
+    build: .
+    container_name: vk-bot-app
+    volumes: 
+      - ./dist:/usr/src/app/dist
+    env_file: .env.production
+    restart: always
+  mysql:
+    platform: linux/x86_64
+    image: percona:8.0
+    container_name: vk-bot-mysql
+    env_file: .env.production
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    restart: always
+    healthcheck: 
+      test: ["CMD", '/etc/init.d/mysql', 'status' ]
+      timeout: 10s
+      interval: 2m
+      retries: 3
+networks:
+  services_net:
+    driver: bridge
+    external: true
+    name: services_net

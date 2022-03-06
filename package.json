@@ -1,0 +1,55 @@
+{
+  "name": "ts-vk-bot",
+  "version": "1.0.0",
+  "description": "Typescript VK Bot",
+  "scripts": {
+    "build": "rimraf dist && tsc -b",
+    "start:dev": "nodemon src/main.ts | pino-pretty -c -t",
+    "start:prod": "node dist/main",
+    "typeorm": "node --loader ts-node/register ./node_modules/typeorm/cli.js",
+    "typeorm:migrate": "npm run typeorm migration:generate -- -n",
+    "typeorm:run": "npm run typeorm migration:run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EXPORTER-DEV/ts-vk-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EXPORTER-DEV/ts-vk-bot/issues"
+  },
+  "homepage": "https://github.com/EXPORTER-DEV/ts-vk-bot#readme",
+  "dependencies": {
+    "@types/validator": "^13.7.1",
+    "axios": "^0.25.0",
+    "chrono-node": "^2.3.7",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "dotenv": "^14.2.0",
+    "fs": "0.0.1-security",
+    "handlebars": "^4.7.7",
+    "md5": "^2.3.0",
+    "moment": "^2.29.1",
+    "mysql2": "^2.3.3",
+    "node-nlp": "^4.23.2",
+    "node-vk-bot-api": "^3.5.0",
+    "path": "^0.12.7",
+    "pino": "^7.6.5",
+    "pino-pretty": "^7.3.0",
+    "qs": "^6.10.3",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.10.1",
+    "typeorm": "^0.2.41",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.10",
+    "nodemon": "^2.0.15"
+  }
+}
